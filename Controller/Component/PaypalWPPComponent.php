@@ -18,9 +18,9 @@ class PaypalWPPComponent extends Component {
 		'username' => '',
 		'password' => '',
 		'signature' => '',
-		'endpoint' => 'https://api-3t.paypal.com/nvp';
+		'endpoint' => 'https://api-3t.paypal.com/nvp',
 		'version' => '51.0',
-	)
+	);
 	
 	/*
 	 * Web Payments Pro Hash
