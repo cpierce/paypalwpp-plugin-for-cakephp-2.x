@@ -44,7 +44,7 @@ Next urlencode your data and send it to the component using a method and an nvp.
 			$nvp .= '&AMT='.$amount;
 			$nvp .= '&CREDITCARDTYPE='.$creditCardType;
 			$nvp .= '&ACCT='.$creditCardNumber;
-			$nvp .= "&CVV2='.$cvv2Number;
+			$nvp .= '&CVV2='.$cvv2Number;
 			$nvp .= '&EXPDATE='.$padDateMonth.$expDateYear;
 			$nvp .= '&FIRSTNAME='.$firstName;
 			$nvp .= '&LASTNAME='.$lastName;
