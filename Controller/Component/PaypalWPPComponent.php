@@ -19,7 +19,7 @@ class PaypalWPPComponent extends Component {
 		'password' => '',
 		'signature' => '',
 		'endpoint' => 'https://api-3t.paypal.com/nvp',
-		'version' => '51.0',
+		'version' => '53.0',
 	);
 	
 	/*
