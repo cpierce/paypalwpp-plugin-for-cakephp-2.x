@@ -60,3 +60,5 @@ Next urlencode your data and send it to the component using a method and an nvp.
 		}	
 	}
 ```
+
+Other Methods can be found at https://devtools-paypal.com/apiexplorer/PayPalAPIs
