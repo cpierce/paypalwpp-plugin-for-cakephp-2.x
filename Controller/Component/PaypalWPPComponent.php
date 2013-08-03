@@ -35,9 +35,9 @@ class PaypalWPPComponent extends Component {
 		curl_setopt($curl_handler, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl_handler, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl_handler, CURLOPT_SSL_VERIFYHOST, false);
-		curl_setopt($chandler, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($chandler, CURLOPT_POST, 1);
-		
+		curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($curl_handler, CURLOPT_POST, 1);
+				
 		$required_nvp = 'METHOD='.$method;
 		$required_nvp .= '&VERSION='.urlencode($this->config['version']);
 		$required_nvp .= '&USER='.urlencode($this->config['username']);
@@ -47,7 +47,7 @@ class PaypalWPPComponent extends Component {
 		curl_setopt($curl_handler, CURLOPT_POSTFIELDS, $required_nvp.$nvp);
 		$http_responder = curl_exec($curl_handler);
 		
-		if (!http_responder) {
+		if (!$http_responder) {
 			throw new BadRequestException($method.'failed: '.curl_error($curl_handler).' ('.curl_errno($curl_handler).')');
 		}
 		
