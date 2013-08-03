@@ -9,7 +9,7 @@ Load component in the Controller using:
 
 Configure Component Username, Password and Signature.  
 
-<code lang="php">
+```
 	private $config = array(
 		'username' => 'username_api1.domain.com',
 		'password' => 'THGSWS658IKUN79S',
@@ -17,11 +17,11 @@ Configure Component Username, Password and Signature.
 		'endpoint' => 'https://api-3t.paypal.com/nvp';
 		'version' => '51.0',
 	)
-</code>
+```
 
 Load the Component into the controller of your choice.
-<code lang="php">
+```
 	public $components = array(
 		'PaypalWPP',
 	),
-</code>
+```
