@@ -15,7 +15,7 @@ Configure Component Username, Password and Signature.
 		'password' => 'THGSWS658IKUN79S',
 		'signature' => 'AFYn4irhcVyzOOiJkc.H2zPIuztlArzO7mr5uXMO6DLICAE85JF.H5PPp',
 		'endpoint' => 'https://api-3t.paypal.com/nvp',
-		'version' => '51.0',
+		'version' => '53.0',
 	);
 ```
 
