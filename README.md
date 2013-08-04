@@ -9,26 +9,26 @@ Load component in the Controller using:
 
 Configure Component Username, Password and Signature.  
 
-```PHP
+```
 	private $config = array(
 		'username' => 'username_api1.domain.com',
 		'password' => 'THGSWS658IKUN79S',
 		'signature' => 'AFYn4irhcVyzOOiJkc.H2zPIuztlArzO7mr5uXMO6DLICAE85JF.H5PPp',
-		'endpoint' => 'https://api-3t.paypal.com/nvp';
+		'endpoint' => 'https://api-3t.paypal.com/nvp',
 		'version' => '51.0',
-	)
+	);
 ```
 
 Load the Component into the controller of your choice.
-```PHP
+```
 	public $components = array(
 		'PaypalWPP',
-	),
+	);
 ```
 
 Next urlencode your data and send it to the component using a method and an nvp.  For doing payments using DoDirectPayment (https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoDirectPayment_API_Operation_NVP/) the following example would work:
 
-```PHP
+```
 	public function add() {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$firstName = urlencode($this->request->data['Sale']['first_name']);
