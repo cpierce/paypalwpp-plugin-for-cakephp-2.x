@@ -2,7 +2,7 @@
 /*
  * Paypal WPP Component
  * 
- * @author Chris PIerce <cpierce@csdurant.com>
+ * @author Chris Pierce <cpierce@csdurant.com>
  *
  */
 App::uses('Component', 'Controller');
