@@ -1,5 +1,10 @@
 <?php
 /*
+ * Load Config File Settings
+ */
+Configure::load('PaypalWPP.paypal');
+ 
+/*
  * Paypal WPP Component
  * 
  * @author Chris Pierce <cpierce@csdurant.com>
@@ -8,19 +13,6 @@
 App::uses('Component', 'Controller');
 
 class PaypalWPPComponent extends Component {
-
-	/*
-	 * Config for Paypal WPP Settings
-	 *
-	 * @var mixed[mixed]
-	 */
-	private $config = array(
-		'username' => '',
-		'password' => '',
-		'signature' => '',
-		'endpoint' => 'https://api-3t.paypal.com/nvp',
-		'version' => '53.0',
-	);
 	
 	/*
 	 * Web Payments Pro Hash
@@ -31,7 +23,7 @@ class PaypalWPPComponent extends Component {
 	 */
 	public function wpp_hash($method = null, $nvp = null) {
 		$curl_handler = curl_init();
-		curl_setopt($curl_handler, CURLOPT_URL, $this->config['endpoint']);
+		curl_setopt($curl_handler, CURLOPT_URL, Configure::read('Paypal.endpoint'));
 		curl_setopt($curl_handler, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl_handler, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl_handler, CURLOPT_SSL_VERIFYHOST, false);
@@ -39,10 +31,10 @@ class PaypalWPPComponent extends Component {
 		curl_setopt($curl_handler, CURLOPT_POST, 1);
 				
 		$required_nvp = 'METHOD='.$method;
-		$required_nvp .= '&VERSION='.urlencode($this->config['version']);
-		$required_nvp .= '&USER='.urlencode($this->config['username']);
-		$required_nvp .= '&PWD='.urlencode($this->config['password']);
-		$required_nvp .= '&SIGNATURE='.urlencode($this->config['signature']);
+		$required_nvp .= '&VERSION='.urlencode(Configure::read('Paypal.version'));
+		$required_nvp .= '&USER='.urlencode(Configure::read('Paypal.username'));
+		$required_nvp .= '&PWD='.urlencode(Configure::read('Paypal.password'));
+		$required_nvp .= '&SIGNATURE='.urlencode(Configure::read('Paypal.signature'));
 		
 		curl_setopt($curl_handler, CURLOPT_POSTFIELDS, $required_nvp.$nvp);
 		$http_responder = curl_exec($curl_handler);
@@ -61,7 +53,7 @@ class PaypalWPPComponent extends Component {
 		}
 		
 		if ((count($parsed_response) < 1) || !array_key_exists('ACK', $parsed_response))
-			throw new BadRequestException('Invalid HTTP Response for POST request ('.$required_nvp.$nvp.') to '.$this->config['endpoint']);
+			throw new BadRequestException('Invalid HTTP Response for POST request ('.$required_nvp.$nvp.') to '.Configure::read('Paypal.endpoint'));
 		
 		return $parsed_response;
 	}
