@@ -5,24 +5,31 @@ CakePHP 2.x Component for interfacing with Paypal WPP
 
 Usage:
 ===================================
-Load component in the Controller using:
-
-Configure Component Username, Password and Signature.  
+Load plugin in your APP and enable it by using the following bootstrap.php config:
 
 ```
-	private $config = array(
-		'username' => 'username_api1.domain.com',
-		'password' => 'THGSWS658IKUN79S',
-		'signature' => 'AFYn4irhcVyzOOiJkc.H2zPIuztlArzO7mr5uXMO6DLICAE85JF.H5PPp',
-		'endpoint' => 'https://api-3t.paypal.com/nvp',
-		'version' => '53.0',
+	CakePlugin::load('PaypalWPP');
+	
+```
+
+Configure your account by opening the Config/paypal.php file as follows
+
+```
+	$config = array(
+		'paypal' => array(
+			'username' => 'username_api1.domain.com',
+			'password' => 'THGSWS658IKUN79S',
+			'signature' => 'AFYn4irhcVyzOOiJkc.H2zPIuztlArzO7mr5uXMO6DLICAE85JF.H5PPp',
+			'endpoint' => 'https://api-3t.paypal.com/nvp',
+			'version' => '53.0',
+		),
 	);
 ```
 
 Load the Component into the controller of your choice.
 ```
 	public $components = array(
-		'PaypalWPP',
+		'PaypalWPP.PaypalWPP',
 	);
 ```
 
