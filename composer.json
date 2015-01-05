@@ -16,7 +16,7 @@
       "email": "cpierce@csdurant.com",
       "homepage": "cpierce.org",
       "role": "Maintainer"
-    },
+    }
   ],
   "require": {
     "composer/installers": "*"
