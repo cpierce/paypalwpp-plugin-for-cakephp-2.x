@@ -1,0 +1,32 @@
+{
+  "name": "cpierce/cakephp-paypalwpp",
+  "description": "CakePHP plugin to handle paypal web payments pro",
+  "type": "cakephp-plugin",
+  "keywords": [
+    "cakephp",
+    "paypal",
+    "webpaymentspro",
+    "wpp"
+  ],
+  "homepage": "http://github.com/cpierce/paypalwpp-plugin-for-cakephp-2.x",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Chris Pierce",
+      "email": "cpierce@csdurant.com",
+      "homepage": "cpierce.org",
+      "role": "Maintainer"
+    },
+  ],
+  "require": {
+    "composer/installers": "*"
+  },
+  "support": {
+    "email": "support@csdurant.com",
+    "issues": "https://github.com/cpierce/paypalwpp-plugin-for-cakephp-2.x/issues",
+    "source": "https://github.com/cpierce/paypalwpp-plugin-for-cakephp-2.x"
+  },
+  "extra": {
+    "installer-name": "PaypalWPP"
+  }
+}
